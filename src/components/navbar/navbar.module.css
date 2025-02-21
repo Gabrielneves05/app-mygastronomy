@@ -18,7 +18,16 @@
   margin: 0 auto;
 }
 
+.logoContainer img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbarLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #E2FFC8;
 }
 

@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { TextField, Button } from "@mui/material";
 import styles from "./page.module.css";
 import { toast } from "react-toastify";
+import AuthServices from "../../services/auth";
 
 export default function Auth() {
   const [formType, setFormType] = useState("login");
   const [formData, setFormData] = useState(null);
+  const { login, signup, authLoading } = AuthServices();
 
   const handleChangeFormType = () => {
     setFormData(null);
@@ -29,15 +31,22 @@ export default function Auth() {
     
     switch (formType) {
       case "login":
-
+          login(formData);
         break;
       case "signup":
           if(formData.password !== formData.confirmPassword) {
             toast.error("As senhas não coincidem!");
+            return;
           }
-
+          signup(formData);
         break;
     }
+  }
+
+  if(authLoading) {
+    return (
+      <h1>Carregando...</h1>
+    )
   }
 
   if(formType === "login") {

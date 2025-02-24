@@ -1,13 +1,23 @@
-import { use, useState } from "react";
+import { useState, useEffect } from "react";
 import { TextField, Button } from "@mui/material";
 import styles from "./page.module.css";
 import { toast } from "react-toastify";
 import AuthServices from "../../services/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Auth() {
   const [formType, setFormType] = useState("login");
   const [formData, setFormData] = useState(null);
   const { login, signup, authLoading } = AuthServices();
+  const navigate = useNavigate();
+
+  const authData = JSON.parse(localStorage.getItem("auth"));
+
+  useEffect(() => {
+    if(authData) {
+      return navigate("/profile");
+    }
+  }, [authData]);
 
   const handleChangeFormType = () => {
     setFormData(null);
@@ -49,75 +59,75 @@ export default function Auth() {
     )
   }
 
-  if(formType === "login") {
-    return (
-      <div className={styles.authPageContainer}>
-        <h1>Entre com sua conta</h1>
-        <form onSubmit={handleSubmitForm}>
-          <TextField 
-            required
-            label="Email"
-            type="email"
-            name="email"
-            onChange={handleFormDataChange}
-          />
+  return (
+    <div className={styles.authPageContainer}>
+        {formType === "login" ? (
+          <>
+            <h1>Entre com sua conta</h1>
+            <form onSubmit={handleSubmitForm}>
+              <TextField 
+                required
+                label="Email"
+                type="email"
+                name="email"
+                onChange={handleFormDataChange}
+              />
 
-          <TextField 
-            required
-            label="Senha"
-            type="password"
-            name="password"
-            onChange={handleFormDataChange}
-          />
+              <TextField 
+                required
+                label="Senha"
+                type="password"
+                name="password"
+                onChange={handleFormDataChange}
+              />
 
-          <Button type="submit">Iniciar sessão</Button>
-        </form>
-        <button onClick={handleChangeFormType}>Não possui uma conta? Cadastre-se!</button>
-      </div>
-    ) 
-  }
+              <Button type="submit">Iniciar sessão</Button>
+            </form>
+            <button onClick={handleChangeFormType}>Não possui uma conta? Cadastre-se!</button>
+          </>
+        ) : null}
 
-  if(formType === "signup") {
-    return (
-      <div className={styles.authPageContainer}>
-        <h1>Crie sua conta</h1>
-        <form onSubmit={handleSubmitForm}>
-          <TextField 
-            required
-            label="Nome Completo"
-            type="fullname"
-            name="fullname"
-            onChange={handleFormDataChange}
-          />
+        {formType === "signup" ? (
+          <>
+            <h1>Crie sua conta</h1>
+            <form onSubmit={handleSubmitForm}>
+              <TextField 
+                required
+                label="Nome Completo"
+                type="fullname"
+                name="fullname"
+                onChange={handleFormDataChange}
+              />
 
-          <TextField 
-            required
-            label="Email"
-            type="email"
-            name="email"
-            onChange={handleFormDataChange}
-          />
+              <TextField 
+                required
+                label="Email"
+                type="email"
+                name="email"
+                onChange={handleFormDataChange}
+              />
 
-          <TextField 
-            required
-            label="Senha"
-            type="password"
-            name="password"
-            onChange={handleFormDataChange}
-          />
+              <TextField 
+                required
+                label="Senha"
+                type="password"
+                name="password"
+                onChange={handleFormDataChange}
+              />
 
-          <TextField 
-            required
-            label="Confirme sua senha"
-            type="password"
-            name="confirmPassword"
-            onChange={handleFormDataChange}
-          />
+              <TextField 
+                required
+                label="Confirme sua senha"
+                type="password"
+                name="confirmPassword"
+                onChange={handleFormDataChange}
+              />
 
-          <Button type="submit">Registrar-se</Button>
-        </form>
-        <button onClick={handleChangeFormType}>Já possui uma conta? Entre aqui!</button>
-      </div>
-    )
-  }
+              <Button type="submit">Registrar-se</Button>
+            </form>
+            <button onClick={handleChangeFormType}>Já possui uma conta? Entre aqui!</button>
+          </>
+        ) : null}
+    </div>
+  )
 }

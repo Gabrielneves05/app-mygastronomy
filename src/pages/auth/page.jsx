@@ -15,7 +15,7 @@ export default function Auth() {
 
   useEffect(() => {
     if(authData) {
-      return navigate("/profile");
+      navigate("/profile");
     }
   }, [authData]);
 

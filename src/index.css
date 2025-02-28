@@ -10,3 +10,12 @@
   font-size: x-large;
   font-family: 'Poppins', sans-serif;
 }
+
+button {
+  width: fit-content;
+  background-color: #E2FFC8;
+  border: none;
+  padding: 1em;
+  border-radius: 5em;
+  cursor: pointer;
+}

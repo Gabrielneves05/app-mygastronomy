@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { toast } from "react-toastify";
 import AuthServices from "../../services/auth";
 import { useNavigate } from "react-router-dom";
+import { LuLogIn } from "react-icons/lu";
 
 export default function Auth() {
   const [formType, setFormType] = useState("login");
@@ -81,9 +82,9 @@ export default function Auth() {
                 onChange={handleFormDataChange}
               />
 
-              <Button type="submit">Iniciar sessão</Button>
+              <button type="submit">Iniciar sessão <LuLogIn/></button>
             </form>
-            <button onClick={handleChangeFormType}>Não possui uma conta? Cadastre-se!</button>
+            <Button onClick={handleChangeFormType}>Não possui uma conta? Cadastre-se!</Button>
           </>
         ) : null}
 
@@ -123,9 +124,9 @@ export default function Auth() {
                 onChange={handleFormDataChange}
               />
 
-              <Button type="submit">Registrar-se</Button>
+              <button type="submit">Registrar-se <LuLogIn/></button>
             </form>
-            <button onClick={handleChangeFormType}>Já possui uma conta? Entre aqui!</button>
+            <Button onClick={handleChangeFormType}>Já possui uma conta? Entre aqui!</Button>
           </>
         ) : null}
     </div>

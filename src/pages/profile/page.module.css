@@ -17,3 +17,28 @@
   padding: .5em;
   border-radius: .5em;
 }
+
+.pickupStatus {
+  border-radius: .5em;
+  width: fit-content;
+  padding: .2em;
+  font-size: large;
+}
+
+.pending {
+  background-color: #d6c918;
+}
+
+.completed {
+  background-color: #00a651;
+}
+
+.canceled {
+  background-color: #ce651a;
+}
+
+@media screen and (max-width: 768px) {
+  .ordersContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -9,13 +9,33 @@
 #root {
   font-size: x-large;
   font-family: 'Poppins', sans-serif;
+  background-color: #E0E6E8;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
   width: fit-content;
-  background-color: #E2FFC8;
+  background-color: #0C363C;
   border: none;
   padding: 1em;
-  border-radius: 5em;
+  border-radius: .5em;
   cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  font-size: medium;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  gap: .2em;
 }

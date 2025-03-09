@@ -17,7 +17,7 @@ export default function Navbar() {
         <Link to={"/"} className={styles.logoContainer}>
           <img 
             className={styles.logo} 
-            src="/logo.png" 
+            src="/images/logo.png" 
             alt="Logo" 
           />
         </Link>
@@ -34,11 +34,13 @@ export default function Navbar() {
       </div>
 
       <div className={styles.mobileNavbarItems}>
-        <img 
-          className={styles.logo} 
-          src="/logo.png" 
-          alt="Logo" 
-        />
+        <Link to={"/"} className={styles.logoContainer}>
+          <img 
+            className={styles.logo} 
+            src="/images/logo.png" 
+            alt="Logo" 
+          />
+        </Link>
         <div className={styles.mobileNavbarButtons}>
           <LuShoppingCart className={styles.navbarLink} />
           <LuMenu className={styles.navbarLink} onClick={handleOpenMenu} />
@@ -51,9 +53,9 @@ export default function Navbar() {
         onClose={handleOpenMenu}
       >
         <div className={styles.drawer}>
-          <a href="#" className={styles.navbarLink}>Início</a>
-          <a href="#" className={styles.navbarLink}>Pratos</a>
-          <a href="#" className={styles.navbarLink}>Perfil</a>
+          <Link to={"/"} className={styles.navbarLink}>Início</Link>
+          <Link to={"/plates"} className={styles.navbarLink}>Pratos</Link>
+          <Link to={"/profile"} className={styles.navbarLink}>Perfil</Link>
         </div>
       </Drawer>
     </nav>

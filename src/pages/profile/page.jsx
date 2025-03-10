@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthServices from "../../services/auth";
 import orderServices from "../../services/order";
 import { LuLogOut, LuTimer, LuCircleCheck, LuCircleAlert } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 import styles from "./page.module.css";
 
@@ -60,6 +61,7 @@ export default function Profile() {
         :
           <div>
             Você ainda não fez nenhum pedido!
+            <Link to={"/plates"} className={styles.platesLink}>Clique aqui e veja nossas especialidades!</Link>
           </div>
       }
     </div>

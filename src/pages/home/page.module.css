@@ -54,3 +54,9 @@
     text-align: center;
   }
 }
+
+@media screen and (min-width: 980px) {
+  .socialButtonsContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -6,6 +6,7 @@ import { LuLogOut, LuTimer, LuCircleCheck, LuCircleAlert } from "react-icons/lu"
 import { Link } from "react-router-dom";
 
 import styles from "./page.module.css";
+import Loading from "../loading/page";
 
 export default function Profile() {
   const { logout } = AuthServices();
@@ -22,7 +23,7 @@ export default function Profile() {
   }, [authData, refetchOrders]);
 
   if(orderLoading) {
-    return ( <h1>Carregando...</h1> );
+    return ( <Loading /> );
   }
 
   const handleLogout = () => {

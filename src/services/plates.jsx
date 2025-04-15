@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function PlatesServices() {
   const [platesLoading, setPlatesLoading] = useState(false);
   const [refetchPlates, setRefetchPlates] = useState(true);
-  const [platesList, setPlatesList] = useState({});
+  const [platesList, setPlatesList] = useState([]);
 
   const url = "http://localhost:3000/plates";
 

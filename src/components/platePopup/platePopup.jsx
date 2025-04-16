@@ -1,7 +1,7 @@
 import { Dialog } from "@mui/material";
 import styles from "./platePopup.module.css"; 
 
-export default function PlatePopup({ plateData, onClose }) {
+export default function PlatePopup({ plateData, onClose, onAddToCart }) {
   return (
     <Dialog open={true} onClose={onClose}>
       <div className={styles.popupContainer}>
@@ -11,7 +11,7 @@ export default function PlatePopup({ plateData, onClose }) {
           <p className={styles.ingredients}>{String(plateData.ingredients).replace(/,/g, ", ")}</p>
           <p>{plateData.description}</p>
           <h2>R$ {plateData.price}</h2>
-          <button>Adicione ao carrinho</button>
+          <button onClick={() => { onAddToCart(plateData) }}>Adicione ao carrinho</button>
         </div>
       </div>
     </Dialog>

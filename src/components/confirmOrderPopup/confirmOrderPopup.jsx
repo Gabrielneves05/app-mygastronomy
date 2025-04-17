@@ -34,10 +34,11 @@ export default function ConfirmOrderPopup({ open, onClose, onConfirm }) {
   }
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={onClose} maxWidth="sm">
       <div className={styles.popupContainer}>
-        <h2>Estamos quase lá...</h2>
-        <p>confirme o seu pedido com a data atual: <strong>{(new Date()).toLocaleDateString()}</strong> A que horas você virá buscar seu pedido?</p>
+        <h2>Quase lá!</h2>
+        <p>Confirme o seu pedido com a data atual: <strong>{(new Date()).toLocaleDateString()}</strong></p>
+        <p>A que horas você virá buscar seu pedido?</p>
         <form className={styles.formContainer}>
           <TextField 
             size="small"
@@ -45,13 +46,14 @@ export default function ConfirmOrderPopup({ open, onClose, onConfirm }) {
             required
             type="time"
             name="pickupTime"
+            className={styles.timeInput}
           />
           <div className={styles.confirmBtns}>
             <button className={styles.cancelBtn} onClick={onClose}>Cancelar</button>
-            <button onClick={handleConfirm} type="submit">Confirmar</button>
+            <button className={styles.confirmBtn} onClick={handleConfirm} type="submit">Confirmar</button>
           </div>
         </form>
       </div>
     </Dialog>
-  )
+  );
 }

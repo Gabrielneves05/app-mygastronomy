@@ -1,20 +1,180 @@
 .popupContainer {
   font-family: 'Poppins', sans-serif;
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  transform: scale(0.8);
+  animation: popupEnter 0.5s ease-out forwards;
+}
+
+@keyframes popupEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .popupContainer img {
-  height: 300px;
   width: 100%;
+  height: 320px;
   object-fit: cover;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.popupContainer img:hover {
+  transform: scale(1.05);
+  filter: brightness(0.85);
 }
 
 .popupContent {
+  padding: 2em;
+  background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  padding: 1em;
+  align-items: center;
+  gap: 1.5em;
+  border-top: 4px solid #eee;
+  border-radius: 20px;
+  position: relative;
 }
 
-.ingredients {
-  color: #9e9e9e;
+.popupContent h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0;
+}
+
+.popupContent .ingredients {
+  font-size: 1rem;
+  color: #8e8e8e;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 1.5em;
+}
+
+.popupContent p {
+  font-size: 1.1rem;
+  color: #595959;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.popupContent .price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ff7043;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.popupContent button {
+  background-color: #d96d00;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1.2em 0;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.popupContent button:hover {
+  background-color: #b55700;
+  transform: translateY(-4px);
+}
+
+.popupContent button:active {
+  background-color: #9e4f00;
+  transform: translateY(2px);
+}
+
+.dialog .MuiDialog-paper {
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .popupContainer {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+
+  .popupContainer img {
+    height: 250px;
+  }
+
+  .popupContent {
+    padding: 1.5em;
+  }
+
+  .popupContent h2 {
+    font-size: 1.8rem;
+  }
+
+  .popupContent .ingredients {
+    font-size: 0.95rem;
+  }
+
+  .popupContent p {
+    font-size: 1rem;
+  }
+
+  .popupContent .price {
+    font-size: 1.3rem;
+  }
+
+  .popupContent button {
+    padding: 1em 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .popupContainer {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .popupContainer img {
+    height: 220px;
+  }
+
+  .popupContent h2 {
+    font-size: 1.6rem;
+  }
+
+  .popupContent .ingredients {
+    font-size: 0.9rem;
+  }
+
+  .popupContent p {
+    font-size: 0.95rem;
+  }
+
+  .popupContent .price {
+    font-size: 1.2rem;
+  }
+
+  .popupContent button {
+    padding: 0.9em 0;
+  }
 }

@@ -3,47 +3,234 @@
   flex-direction: column;
   align-items: center;
   gap: 2em;
+  padding: 2em 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5em;
 }
 
 .itemsListContainer {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .itemContainer {
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 1em;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5em;
+  padding: 1.5em;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.itemContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .itemContainer img {
-  width: 250px;
-  height: 100%;
+  width: 100%;
+  height: 250px;
   border-radius: 0.5em;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.itemContainer img:hover {
+  transform: scale(1.05);
 }
 
 .itemContent {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  width: 100%;
+  gap: 1em;
+}
+
+.itemContent h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.itemContent p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
 }
 
 .portionContainer {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .portionBtns {
   display: flex;
-  gap: 0.2em;
+  gap: 0.5em;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  background-color: #d96d00;
+  border: none;
+  padding: 0.8em 1.2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #b55700;
+}
+
+button:active {
+  background-color: #9e4f00;
+  transform: translateY(2px);
+}
+
+button svg {
+  font-size: 1.2rem;
 }
 
 .confirmBtn {
-  position: fixed;
-  font-size: x-large;
-  bottom: 2em;
+  background-color: #d96d00;
+  padding: 1.2em 2em;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5em;
+  border: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 2em;
+}
+
+.confirmBtn:hover {
+  background-color: #b55700;
+}
+
+.confirmBtn:active {
+  background-color: #9e4f00;
+  transform: translateY(3px);
+}
+
+.emptyCartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+}
+
+.emptyCartContainer h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.emptyCartContainer button {
+  background-color: #d96d00;
+  padding: 1em 2em;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.emptyCartContainer button:hover {
+  background-color: #b55700;
+}
+
+.emptyCartContainer button:active {
+  background-color: #9e4f00;
+  transform: translateY(3px);
+}
+
+@media (max-width: 768px) {
+  .itemContainer {
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
+
+  .itemContainer img {
+    height: 200px;
+  }
+
+  .itemContent h2 {
+    font-size: 1.3rem;
+  }
+
+  .itemContent p {
+    font-size: 0.9rem;
+  }
+
+  .confirmBtn {
+    width: 100%;
+    max-width: none;
+  }
+
+  .emptyCartContainer h1 {
+    font-size: 1.5rem;
+  }
+
+  .emptyCartContainer button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 1em;
+  }
+
+  .itemContainer {
+    padding: 0.8em;
+  }
+
+  .itemContainer img {
+    height: 180px;
+  }
+
+  .itemContent h2 {
+    font-size: 1.2rem;
+  }
+
+  .itemContent p {
+    font-size: 0.8rem;
+  }
+
+  .confirmBtn {
+    font-size: 1.3rem;
+  }
+
+  .emptyCartContainer h1 {
+    font-size: 1.3rem;
+  }
+
+  .emptyCartContainer button {
+    font-size: 1rem;
+  }
 }

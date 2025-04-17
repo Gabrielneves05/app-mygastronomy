@@ -5,3 +5,7 @@
   justify-content: center;
   gap: 0.5em;
 }
+
+.registerBtn:hover {
+  background: linear-gradient(180deg, #fffdf7 0%, #fefaf0 100%);
+}

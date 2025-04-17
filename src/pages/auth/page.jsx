@@ -84,7 +84,7 @@ export default function Auth() {
 
               <button type="submit">Iniciar sessão <LuLogIn/></button>
             </form>
-            <Button onClick={handleChangeFormType}>Não possui uma conta? Cadastre-se!</Button>
+            <Button onClick={handleChangeFormType} className={styles.registerBtn}>Não possui uma conta? Cadastre-se!</Button>
           </>
         ) : null}
 
@@ -126,7 +126,7 @@ export default function Auth() {
 
               <button type="submit">Registrar-se <LuLogIn/></button>
             </form>
-            <Button onClick={handleChangeFormType}>Já possui uma conta? Entre aqui!</Button>
+            <Button onClick={handleChangeFormType} className={styles.registerBtn}>Já possui uma conta? Entre aqui!</Button>
           </>
         ) : null}
     </div>

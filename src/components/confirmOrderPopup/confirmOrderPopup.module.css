@@ -1,12 +1,95 @@
+/* confirmOrderPopup.module.css */
+
+/* Pop-up container */
 .popupContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 1em;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden; /* Remove o scroll horizontal */
+  box-sizing: border-box; /* Garante que o padding não ultrapasse a largura do elemento */
 }
 
+/* Contêiner de diálogo */
+.MuiDialog-root {
+  overflow-x: hidden; /* Impede scroll horizontal no diálogo */
+}
+
+/* Título do popup */
+.popupContainer h2 {
+  font-size: 24px;
+  color: #5a4e4e;
+  margin-bottom: 15px;
+}
+
+/* Texto principal do popup */
+.popupContainer p {
+  font-size: 16px;
+  color: #5a4e4e;
+  margin-bottom: 20px;
+}
+
+/* Contêiner do formulário */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%; /* Garante que o conteúdo se ajuste corretamente */
+  box-sizing: border-box; /* Impede que o conteúdo ultrapasse a largura do container */
+}
+
+/* Estilo do campo de horário */
+.timeInput {
+  width: 100%; /* Assegura que o campo de entrada ocupe 100% da largura do container */
+  max-width: 200px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  box-sizing: border-box; /* Garante que o padding não ultrapasse a largura do elemento */
+}
+
+/* Contêiner dos botões de confirmação */
 .confirmBtns {
   display: flex;
-  gap: 1em;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Botão de cancelar */
+.cancelBtn {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.cancelBtn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Botão de confirmar */
+.confirmBtn {
+  padding: 10px 20px;
+  background-color: #d96d00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.confirmBtn:hover {
+  background-color: #b55700;
 }

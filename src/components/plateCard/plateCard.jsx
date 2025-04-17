@@ -4,7 +4,7 @@ export default function PlateCard({ plateData }) {
   return (
     <>
       <div className={styles.cardContainer}>
-        <img src={plateData.imgUrl} alt="" />
+        <img src={plateData.imgUrl} alt={plateData.name} />
         <div className={styles.cardContent}>
           <h4>{plateData.name}</h4>
           <h5 className={styles.price}>
@@ -13,5 +13,5 @@ export default function PlateCard({ plateData }) {
         </div>
       </div>
     </>
-  )
+  );
 }

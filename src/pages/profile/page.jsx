@@ -62,7 +62,7 @@ export default function Profile() {
         :
           <div>
             Você ainda não fez nenhum pedido!
-            <Link to={"/plates"} className={styles.platesLink}>Clique aqui e veja nossas especialidades!</Link>
+            <Link to={"/plates"} className={styles.platesLink}> Clique aqui e veja nossas especialidades!</Link>
           </div>
       }
     </div>

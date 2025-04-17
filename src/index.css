@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 #root {
   font-size: x-large;
   font-family: 'Poppins', sans-serif;
-  background-color: #E0E6E8;
+  background: linear-gradient(180deg, #fffdf7 0%, #fefaf0 100%);
   min-height: 100vh;
 }
 
@@ -25,7 +25,7 @@ button {
   justify-content: center;
   gap: 0.5em;
   width: fit-content;
-  background-color: #0C363C;
+  background-color: #d96d00; /* laranja queimado sofisticado */
   border: none;
   padding: 1em;
   border-radius: .5em;
@@ -33,10 +33,16 @@ button {
   color: #fff;
   font-weight: bold;
   font-size: medium;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b55700; /* tom mais escuro no hover */
 }
 
 p {
   display: flex;
   align-items: center;
   gap: .2em;
+  color: #5a4e4e; /* tom mais suave para textos */
 }

@@ -4,13 +4,28 @@ import { LuCircleMinus } from "react-icons/lu";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 
 export default function Cart() {
-  const { cartItems } = useCartContext();
+  const { cartItems, updateCartItems, removeFromCart } = useCartContext();
+
+  const handleChangeItemQuantity = (mode, itemId) => {
+    const updatedCartItems = cartItems.map(item => {
+      if(item._id === itemId) {
+        if(mode === 'less' && item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else if(mode === 'more') {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+      }
+      return item; // Retorna o item inalterado se não corresponder à condição
+    });
+
+    updateCartItems(updatedCartItems);
+  }
 
   console.log(cartItems);
 
   if(!cartItems.length) {
     return (
-      <div>
+      <div className={styles.emptyCartContainer}>
         <h1>Seu carrinho está vazio!</h1>
         <button>Veja nossas especialidades</button>
       </div>
@@ -19,7 +34,7 @@ export default function Cart() {
 
   return (
     <div className={styles.pageContainer}>
-      <h1>Seus items:</h1>
+      <h1>Seus itens:</h1>
       <section>
         <div className={styles.itemsListContainer}>
           {cartItems.map(item => (
@@ -27,7 +42,7 @@ export default function Cart() {
               className={styles.itemContainer} 
               key={item._id}
               >
-                <img src={item.imgUrl} alt="" />
+                <img src={item.imgUrl} alt={item.name} />
                 <div className={styles.itemContent}>
                   <h2>{item.name}</h2>
                   <p>{String(item.ingredients).replace(/,/g, ", ")}</p>
@@ -36,11 +51,11 @@ export default function Cart() {
                     <p>Quantidade:</p>
                     <p>{item.quantity}</p>
                     <div className={styles.portionBtns}>
-                      <button><IoMdRemove /></button>
-                      <button><IoMdAdd /></button>
+                      <button onClick={() => handleChangeItemQuantity('less', item._id)}><IoMdRemove /></button>
+                      <button onClick={() => handleChangeItemQuantity('more', item._id)}><IoMdAdd /></button>
                     </div>
                   </div>
-                  <button><LuCircleMinus />Remover do carrinho</button>
+                  <button onClick={() => removeFromCart(item._id)}><LuCircleMinus />Remover do carrinho</button>
                 </div>
               </div>
           ))}

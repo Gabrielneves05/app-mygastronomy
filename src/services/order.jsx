@@ -34,5 +34,28 @@ export default function OrderServices() {
     })
   }
 
-  return { getUserOrders, orderLoading, refetchOrders, ordersList };
+  const sendOrder = (orderData) => {
+    setOrderLoading(true);
+
+    fetch(`${url}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify(orderData)
+    })
+    .then(res => res.json())
+    .then(result => {
+      console.log(result);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      setOrderLoading(false);
+    })
+  }
+
+  return { getUserOrders, orderLoading, refetchOrders, ordersList, sendOrder };
 }

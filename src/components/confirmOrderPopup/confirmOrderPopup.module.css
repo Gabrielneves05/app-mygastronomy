@@ -1,0 +1,12 @@
+.popupContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.confirmBtns {
+  display: flex;
+  gap: 1em;
+}

@@ -13,7 +13,7 @@ export default function App() {
         <main>
           <Outlet />
         </main>
-        <ToastContainer />
+        <ToastContainer  position="bottom-right" />
         <Footer />
       </CartProvider>
     </>

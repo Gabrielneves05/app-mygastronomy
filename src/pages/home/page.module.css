@@ -41,6 +41,8 @@
   border-radius: 1.5em;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .foodSection div {
@@ -50,8 +52,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em;
+  justify-content: flex-start;
+  text-align: center;
+  height: 100%;
+  gap: 1.5em;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 .foodSection div:hover {
@@ -66,24 +72,35 @@
 }
 
 .foodSection h4 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #3e2f2f;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .foodSection p {
-  text-align: center;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #6e5f5f;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 90%;
 }
 
 .contactSection {
-  background: linear-gradient(135deg, #ffe8d0, #fff0e1);
+  background: #fff;
   padding: 3em;
   border-radius: 1.2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2em;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .contactSection h1 {
@@ -125,6 +142,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .pageContainer {
+    padding: 2em 1em;
+  }
+
   .pageContainer h1 {
     font-size: 2rem;
   }
@@ -135,9 +156,84 @@
 
   .foodSection {
     padding: 2em 1em;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+  }
+
+  .foodSection div {
+    padding: 1.5em;
+  }
+
+  .foodSection h4 {
+    font-size: 1.3rem;
+  }
+
+  .foodSection p {
+    font-size: 0.95rem;
   }
 
   .contactSection {
     padding: 2em 1em;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .contactSection h1 {
+    font-size: 2rem;
+  }
+
+  .contactSection p {
+    font-size: 1rem;
+  }
+
+  .socialButton {
+    font-size: 0.9rem;
+    padding: 0.8em 1.2em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pageContainer h1 {
+    font-size: 1.8rem;
+  }
+
+  .pageContainer p {
+    font-size: 0.9rem;
+  }
+
+  .foodSection {
+    padding: 1.5em 1em;
+    grid-template-columns: 1fr;
+  }
+
+  .foodSection div {
+    padding: 1em;
+  }
+
+  .foodSection h4 {
+    font-size: 1.2rem;
+  }
+
+  .foodSection p {
+    font-size: 0.9rem;
+  }
+
+  .contactSection {
+    padding: 1.5em 1em;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .contactSection h1 {
+    font-size: 1.8rem;
+  }
+
+  .contactSection p {
+    font-size: 0.95rem;
+  }
+
+  .socialButton {
+    font-size: 0.85rem;
+    padding: 0.7em 1em;
   }
 }

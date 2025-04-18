@@ -3,8 +3,9 @@
   flex-direction: column;
   align-items: center;
   gap: 2em;
-  padding: 2em 0;
+  padding: 2em 1em;
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -24,15 +25,19 @@ h1 {
   max-width: 1200px;
 }
 
+/* CARD DO PEDIDO */
 .itemContainer {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-direction: row;
   gap: 1.5em;
+  background-color: #fff;
   padding: 1.5em;
   border-radius: 10px;
-  background-color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .itemContainer:hover {
@@ -41,27 +46,27 @@ h1 {
 }
 
 .itemContainer img {
-  width: 100%;
+  width: 250px;
   height: 250px;
-  border-radius: 0.5em;
+  border-radius: 10px;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.itemContainer img:hover {
-  transform: scale(1.05);
+  flex-shrink: 0;
 }
 
 .itemContent {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .itemContent h2 {
   font-size: 1.5rem;
+  color: #333;
   font-weight: 600;
-  color: #444;
 }
 
 .itemContent p {
@@ -72,6 +77,7 @@ h1 {
 
 .portionContainer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1em;
 }
@@ -79,21 +85,18 @@ h1 {
 .portionBtns {
   display: flex;
   gap: 0.5em;
+  flex-wrap: wrap;
 }
 
 button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
   background-color: #d96d00;
+  color: white;
   border: none;
+  border-radius: 6px;
   padding: 0.8em 1.2em;
-  border-radius: 0.5em;
-  cursor: pointer;
-  color: #fff;
   font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
@@ -105,24 +108,19 @@ button:active {
   transform: translateY(2px);
 }
 
-button svg {
-  font-size: 1.2rem;
-}
-
 .confirmBtn {
-  background-color: #d96d00;
+  margin-top: 2em;
   padding: 1.2em 2em;
-  color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 0.5em;
-  border: none;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
   width: 100%;
   max-width: 400px;
-  margin-top: 2em;
+  border: none;
+  border-radius: 8px;
+  background-color: #d96d00;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .confirmBtn:hover {
@@ -131,31 +129,32 @@ button svg {
 
 .confirmBtn:active {
   background-color: #9e4f00;
-  transform: translateY(3px);
+  transform: translateY(2px);
 }
 
+/* CARRINHO VAZIO */
 .emptyCartContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2em;
   padding: 2em;
+  text-align: center;
 }
 
 .emptyCartContainer h1 {
   font-size: 1.8rem;
-  font-weight: 600;
   color: #333;
 }
 
 .emptyCartContainer button {
   background-color: #d96d00;
-  padding: 1em 2em;
-  border: none;
   color: white;
-  font-weight: 600;
+  border: none;
+  padding: 1em 2em;
   font-size: 1.2rem;
-  border-radius: 1em;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -164,19 +163,32 @@ button svg {
   background-color: #b55700;
 }
 
-.emptyCartContainer button:active {
-  background-color: #9e4f00;
-  transform: translateY(3px);
+/* RESPONSIVO */
+@media screen and (max-width: 1024px) {
+  .itemContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .itemContent {
+    align-items: center;
+  }
+
+  .portionContainer,
+  .portionBtns {
+    justify-content: center;
+  }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .itemContainer {
-    grid-template-columns: 1fr;
     padding: 1em;
   }
 
   .itemContainer img {
-    height: 200px;
+    width: 100%;
+    height: auto;
   }
 
   .itemContent h2 {
@@ -184,28 +196,17 @@ button svg {
   }
 
   .itemContent p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .confirmBtn {
-    width: 100%;
-    max-width: none;
-  }
-
-  .emptyCartContainer h1 {
-    font-size: 1.5rem;
-  }
-
-  .emptyCartContainer button {
     font-size: 1rem;
+    padding: 1em;
+    max-width: none;
   }
 }
 
-@media (max-width: 480px) {
-  .pageContainer {
-    padding: 1em;
-  }
-
+@media screen and (max-width: 480px) {
   .itemContainer {
     padding: 0.8em;
   }
@@ -215,22 +216,14 @@ button svg {
   }
 
   .itemContent h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .itemContent p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .confirmBtn {
-    font-size: 1.3rem;
-  }
-
-  .emptyCartContainer h1 {
-    font-size: 1.3rem;
-  }
-
-  .emptyCartContainer button {
     font-size: 1rem;
   }
 }

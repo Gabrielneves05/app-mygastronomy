@@ -42,7 +42,9 @@ export default function Navbar() {
           />
         </Link>
         <div className={styles.mobileNavbarButtons}>
-          <LuShoppingCart className={styles.navbarLink} />
+          <Link to={"/cart"}>
+            <LuShoppingCart className={styles.navbarLink} />
+          </Link>
           <LuMenu className={styles.navbarLink} onClick={handleOpenMenu} />
         </div>
       </div>

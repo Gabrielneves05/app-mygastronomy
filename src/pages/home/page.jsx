@@ -19,7 +19,7 @@ export default function Home() {
       <section className={styles.foodSection}>
         <div>
           <i><NaturalFood /></i>
-          <h4>Excelência no seu dia a dia</h4>
+          <h4>Excelência em gastronomia</h4>
           <p>
             Descubra nossa seleção diária de pratos únicos para adicionar um toque fresco e refinado à sua experiência gastronômica.
           </p>
@@ -27,7 +27,7 @@ export default function Home() {
 
         <div>
           <i><Vegetable /></i>
-          <h4>Ingredientes de primeira escolha</h4>
+          <h4>Ingredientes de qualidade</h4>
           <p>
             Selecionamos cuidadosamente ingredientes excepcionais para garantir a mais alta qualidade.
           </p>
@@ -51,7 +51,7 @@ export default function Home() {
           <button className={styles.socialButton}><FaInstagram /> Instagram</button>
           <button className={styles.socialButton}><FaFacebookSquare /> Facebook</button>
           <button className={styles.socialButton}><FaWhatsapp /> Whatsapp</button>
-          <button className={styles.socialButton}><FaMapMarkerAlt /> Location</button>
+          <button className={styles.socialButton}><FaMapMarkerAlt /> Localização</button>
         </div>
       </section>
     </div>

@@ -1,11 +1,62 @@
-.authPageContainer, form {
+.authPageContainer,
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5em;
+  padding: 1em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .registerBtn:hover {
   background: linear-gradient(180deg, #fffdf7 0%, #fefaf0 100%);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .authPageContainer h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  form {
+    width: 100%;
+    padding: 0 1em;
+  }
+
+  form > * {
+    width: 100% !important;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .registerBtn {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .authPageContainer h1 {
+    font-size: 1.25rem;
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 0.65em;
+  }
+
+  .registerBtn {
+    font-size: 0.85rem;
+  }
 }

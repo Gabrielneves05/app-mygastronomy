@@ -101,15 +101,57 @@ button {
   font-weight: bold;
   font-size: medium;
   transition: background-color 0.3s ease;
+  max-width: 100%;
+  flex-shrink: 0;
 }
 
 button:hover {
   background-color: #b46100;
 }
 
+.profileHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  background-color: #fffaf0;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.profileInfo h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #333;
+}
+
+.profileInfo h2 {
+  font-size: 1rem;
+  margin: 0;
+  color: #555;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 768px) {
   .ordersContainer {
     grid-template-columns: repeat(1, 1fr);
     gap: 1.5em;
+  }
+
+  .profileHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  button {
+    width: 100%;
   }
 }

@@ -95,8 +95,8 @@ export default function Auth() {
               <TextField 
                 required
                 label="Nome Completo"
-                type="fullname"
-                name="fullname"
+                type="name"
+                name="name"
                 onChange={handleFormDataChange}
               />
 

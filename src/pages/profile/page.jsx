@@ -35,12 +35,15 @@ export default function Profile() {
 
   return (
     <div className={styles.pageContainer}>
-      <div>
-        <h1>{authData?.user?.fullname}</h1>
-        <h1>{authData?.user?.email}</h1>
+      <div className={styles.profileHeader}>
+        <div className={styles.profileInfo}>
+          <h1>{authData?.user?.fullname}</h1>
+          <h2>{authData?.user?.email}</h2>
+        </div>
+        
+        <button onClick={handleLogout}>Sair <LuLogOut /></button>
       </div>
-      
-      <button onClick={handleLogout}>Sair <LuLogOut /></button>
+
 
       {ordersList.length > 0 ? 
           <div className={styles.ordersContainer}>
